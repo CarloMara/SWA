@@ -1,0 +1,19 @@
+{
+  "name": "my-app-gui",
+  "version": "1.0.0",
+  "description": "my-app-todo-notes-gui",
+  "main": "app.js",
+  "dependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1"
+  },
+  "devDependencies": {
+    "file-loader": "^3.0.1",
+    "webpack": "^4.29.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
