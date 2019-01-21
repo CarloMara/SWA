@@ -29,7 +29,7 @@ func name() {
 }
 func InitDB() {
 	var err error
-	Db, err = bolt.Open("/home/carlo/Documents/web_frameworks_comparison/go/revel/src/my-app/db/notes.db", 0666, nil)
+	Db, err = bolt.Open("./db/notes.db", 0666, nil)
 	if err != nil {
 		log.Fatal("fail to open db")
 	}
