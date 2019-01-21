@@ -3,4 +3,4 @@ tmp/
 routes/
 webpack/public
 webpack/node_modules
-db/
+
