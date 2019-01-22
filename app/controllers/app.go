@@ -10,7 +10,8 @@ import (
 	"SWA/app/routes"
 	bolt "go.etcd.io/bbolt"
 	// "reflect"
-	"strconv"
+	// "strconv"
+	humanize "github.com/dustin/go-humanize"
 	"time"
 )
 
@@ -49,18 +50,13 @@ func (c App) List() revel.Result {
 
 		b.ForEach(func(k, v []byte) error {
 			log := c.Log.New()
-			// fmt.Printf("key=%s, value=%s\n", k, v)	reflect.TypeOf(btoi(k))		reflect.TypeOf(strconv.Itoa(btoi(k)))	hex.Dump(k)
-			// log.Info("elements ", "[]keyvalue", k, "int64(keyvalue)", btoi(k))
-			log.Infof("elements. int64k: %s", btoi(k))
-			notes[strconv.FormatInt(int64(btoi(k)), 10)] = string(v)
-			// notes[time.Unix(btoi(k), 10)] = string(v)
+			log.Info("elements.", "int64k", btoi(k))
+			ts := time.Unix(int64(btoi(k)), 0)
+			notes[humanize.Time(ts)] = string(v)
 			return nil
 		})
 		return nil
 	})
-	// fmt.Print("map:", notes)
-	// notes := map[int]string{00: string("prova"), 01: string("prova2")}
-
 	return c.Render(notes)
 }
 
